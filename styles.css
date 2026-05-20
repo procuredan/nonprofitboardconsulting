@@ -170,6 +170,16 @@ h2 {
   padding: 28px;
   font-size: 0.95rem;
 }
+.headshot {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 40px auto;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  border: 5px solid white;
+}
 
 @media (max-width: 768px) {
 
