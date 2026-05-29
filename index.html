@@ -1,283 +1,399 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kathryn Standard | Nonprofit Board Consulting</title>
+  <meta name="description" content="Kathryn Standard helps nonprofit executive directors and their boards clarify roles, align expectations, and build the working relationship that lets both sides do their best work." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <title>Nonprofit Board Consulting | Governance & Board Development</title>
+    :root {
+      --navy: #1a2744;
+      --gold: #b8963e;
+      --warm-white: #faf8f5;
+      --mid-gray: #6b7280;
+      --light-gray: #f3f1ee;
+      --text: #1f2937;
+    }
 
-  <meta
-    name="description"
-    content="Helping nonprofit organizations improve governance, board effectiveness, leadership structure, meeting management, and board development."
-  />
+    html { scroll-behavior: smooth; }
 
-  <link rel="stylesheet" href="styles.css" />
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: #fff;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid #e5e3df;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--navy);
+      letter-spacing: 0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--mid-gray);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+
+    /* HERO */
+    .hero {
+      margin-top: 64px;
+      min-height: calc(100vh - 64px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+    }
+    .hero-text {
+      background: var(--navy);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 4rem 5rem 5rem;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.25;
+      color: #fff;
+      margin-bottom: 1.75rem;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: #d4b87a;
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      background: var(--gold);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+      align-self: flex-start;
+    }
+    .btn:hover { background: #9e7c2e; transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+    }
+    .btn-outline:hover { background: var(--gold); color: #fff; }
+
+    .hero-photo {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* SECTION SHARED */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 900px; margin: 0 auto; }
+    .container-wide { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 1.5rem;
+    }
+    p { margin-bottom: 1.25rem; color: #374151; }
+    p:last-child { margin-bottom: 0; }
+
+    /* THE CHALLENGE */
+    .challenge { background: var(--warm-white); }
+    .challenge .container { max-width: 740px; }
+    .challenge p { font-size: 1.08rem; }
+
+    /* WHAT I DO — two column */
+    .what-i-do { background: #fff; }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .two-col img {
+      width: 100%;
+      border-radius: 2px;
+      display: block;
+    }
+
+    /* WHY ME — credential cards */
+    .why-me { background: var(--light-gray); }
+    .credentials {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .credential-card {
+      background: #fff;
+      padding: 1.75rem 2rem;
+      border-left: 3px solid var(--gold);
+    }
+    .credential-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+    }
+    .credential-card p {
+      font-size: 0.93rem;
+      color: var(--mid-gray);
+      margin: 0;
+      line-height: 1.6;
+    }
+    .education-note {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: var(--mid-gray);
+      font-style: italic;
+    }
+
+    /* WHO I WORK WITH */
+    .who { background: #fff; }
+    .who .container { max-width: 740px; }
+    .who p { font-size: 1.08rem; }
+
+    /* CTA */
+    .cta-section {
+      background: var(--navy);
+      color: #fff;
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+    .cta-section h2 { color: #fff; margin-bottom: 1rem; }
+    .cta-section p { color: rgba(255,255,255,0.75); max-width: 520px; margin: 0 auto 2.5rem; }
+
+    /* FOOTER */
+    footer {
+      background: #111827;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.03em;
+    }
+
+    /* DIVIDER */
+    .gold-rule {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-photo { height: 55vw; min-height: 280px; }
+      .hero-text { padding: 3rem 1.75rem; }
+      .two-col { grid-template-columns: 1fr; gap: 2rem; }
+      .two-col img { max-height: 320px; object-fit: cover; }
+      .credentials { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
 </head>
-
 <body>
 
+  <!-- NAV -->
+  <nav>
+    <span class="nav-name">Kathryn Standard</span>
+    <ul class="nav-links">
+      <li><a href="#what-i-do">What I Do</a></li>
+      <li><a href="#why-me">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <!-- HERO -->
-
-  <section class="hero">
-    <div class="overlay"></div>
-
-    <div class="hero-content">
-      <h1>
-        Stronger Nonprofit Boards Start With Clear Governance
+  <section class="hero" style="padding:0;">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Nonprofit Board Consulting</p>
+      <h1 class="hero-headline">
+        I've led boards.<br />
+        I've reported to them.<br />
+        <em>I know what it takes<br />to make the relationship work.</em>
       </h1>
-
-      <p class="hero-text">
-        Helping nonprofit organizations improve board effectiveness,
-        leadership structure, governance practices, and meeting management.
+      <p class="hero-sub">
+        Helping nonprofit executive directors and their boards
+        clarify roles, align expectations, and build the partnership
+        that lets both sides do their best work.
       </p>
-
-      <a href="#contact" class="btn">
-        Schedule a Consultation
-      </a>
+      <a href="#contact" class="btn">Schedule a Conversation</a>
+    </div>
+    <div class="hero-photo">
+      <img src="Professional headshot.jpg" alt="Kathryn Standard" />
     </div>
   </section>
 
-  <!-- PROBLEMS -->
-
-  <section class="section light">
+  <!-- THE CHALLENGE -->
+  <section class="challenge" id="challenge">
     <div class="container">
-
-      <h2>Is Your Organization Struggling With:</h2>
-
-      <div class="grid">
-
-        <div class="card">
-          <h3>Unclear Roles</h3>
-          <p>
-            Board members involved in day-to-day operations or uncertainty
-            between governance and management responsibilities.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Inefficient Meetings</h3>
-          <p>
-            Long meetings without direction, accountability, or productive outcomes.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Board Recruitment Challenges</h3>
-          <p>
-            Difficulty identifying, recruiting, and retaining engaged board members.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Committee Structure Issues</h3>
-          <p>
-            Committees that lack purpose, direction, or alignment with organizational goals.
-          </p>
-        </div>
-
-      </div>
-
-      <p class="section-text">
-        Many nonprofit organizations reach a point where governance structures
-        need to evolve. We help boards and executive leadership create clearer
-        roles, healthier processes, and more effective leadership practices.
+      <div class="gold-rule"></div>
+      <div class="section-label">The Challenge</div>
+      <h2>When great leaders work at cross-purposes</h2>
+      <p>
+        A nonprofit board filled with accomplished, well-intentioned leaders should be a tremendous asset. And it can be.
       </p>
-
+      <p>
+        But when the roles between board and staff aren't clearly defined — when governance blurs into operations, or when board energy isn't pointed in the right direction — even the most talented people can work against each other without realizing it.
+      </p>
+      <p>
+        That's not a failure of character. It's a failure of structure. And structure can be fixed.
+      </p>
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- WHAT I DO -->
+  <section class="what-i-do" id="what-i-do">
+    <div class="container-wide">
+      <div class="two-col">
+        <div>
+          <div class="gold-rule"></div>
+          <div class="section-label">What I Do</div>
+          <h2>Practical consulting grounded in real experience</h2>
+          <p>
+            I work with nonprofit executive directors and their boards to clarify roles, align expectations, and build the kind of working relationship that lets both sides do their best work.
+          </p>
+          <p>
+            My approach starts with assessment — understanding your organization, your board composition, and where the friction is coming from. From there, we build a practical path forward together.
+          </p>
+          <p>
+            Engagements are customized to your situation. Some organizations need a single facilitated session. Others benefit from ongoing partnership. We'll determine what's right for you.
+          </p>
+          <p style="color: var(--mid-gray); font-size:0.93rem;">
+            I work with clients nationwide — in person and via video.
+          </p>
+          <br />
+          <a href="#contact" class="btn btn-outline" style="color: var(--navy); border-color: var(--navy);">Let's Talk</a>
+        </div>
+        <div>
+          <img src="desk headshot.PNG" alt="Kathryn Standard at work" />
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <section class="section dark">
+  <!-- WHY ME -->
+  <section class="why-me" id="why-me">
     <div class="container">
-
-      <h2>Consulting Services</h2>
-
-      <div class="services">
-
-        <div class="service-item">
-          <h3>Governance & Board Development</h3>
-          <p>
-            Clarifying the roles of board members, officers, committees,
-            and executive leadership.
-          </p>
+      <div class="gold-rule"></div>
+      <div class="section-label">About Kathryn</div>
+      <h2>I bring something most consultants can't: I've lived every role.</h2>
+      <div class="credentials">
+        <div class="credential-card">
+          <h3>Board Member</h3>
+          <p>I've served on multiple nonprofit boards and understand what it feels like to want to contribute — and to not always know how.</p>
         </div>
-
-        <div class="service-item">
-          <h3>Meeting Facilitation & Efficiency</h3>
-          <p>
-            Creating structured, productive meetings with clear outcomes
-            and accountability.
-          </p>
+        <div class="credential-card">
+          <h3>Board President</h3>
+          <p>As President of the Junior League of Orange County, I led a board of twelve and an organization of over 600 women. I know what it takes to keep a board focused, engaged, and accountable.</p>
         </div>
-
-        <div class="service-item">
-          <h3>Board Recruitment & Structure</h3>
-          <p>
-            Helping organizations recruit and onboard effective board members.
-          </p>
+        <div class="credential-card">
+          <h3>Executive Director</h3>
+          <p>Twice — once at a large, established nonprofit and once at a smaller, growing one. I know what it's like to lead an organization while managing up to a board, and what makes that relationship thrive or break down.</p>
         </div>
-
-        <div class="service-item">
-          <h3>Governance Training</h3>
-          <p>
-            Training boards on fiduciary duties, governance best practices,
-            and leadership responsibilities.
-          </p>
+        <div class="credential-card">
+          <h3>Corporate Executive</h3>
+          <p>Over twenty years in corporate America, including leading international marketing divisions for a medical device company. I understand how high-performing organizations are structured — and how to bring that discipline to mission-driven work.</p>
         </div>
-
-        <div class="service-item">
-          <h3>Strategic Board Consulting</h3>
-          <p>
-            Supporting organizations through leadership transitions,
-            restructuring, and governance challenges.
-          </p>
-        </div>
-
       </div>
-
+      <p class="education-note">MBA, Harvard Business School &nbsp;·&nbsp; BA, University of California, Berkeley</p>
     </div>
   </section>
 
-  <!-- ABOUT -->
-
-  <section class="section light">
-    <div class="container narrow">
-
-    <h2>Experienced Nonprofit Leadership & Governance Expertise</h2>
-  <img
-  src="KSeeboldHeadshot.PNG"
-  alt="Kathryn Nonprofit Board Consultant"
-  class="headshot"
-/>
-
- <p class="section-text">
-  Kathryn brings more than 25 years of leadership experience across
-  nonprofit organizations and executive management, including expertise
-  in board governance, organizational leadership, board development,
-  fundraising, committee leadership, and strategic planning.
-</p>
-
-    <div class="services">
-
-      <div class="service-item">
-        <h3>Executive Leadership</h3>
-
-        <p>
-          • CEO, CASA of Orange County, California<br>
-          • Executive Director, Family Advocates of Boise, Idaho
-        </p>
-      </div>
-
-      <div class="service-item">
-        <h3>Board & Governance Experience</h3>
-
-        <p>
-          Extensive nonprofit board leadership experience including
-          board president roles, governance leadership, training,
-          committee development, fundraising leadership, and strategic planning.
-        </p>
-      </div>
-
-      <div class="service-item">
-        <h3>Organizations Served</h3>
-
-        <p>
-          Leadership and board service with organizations including
-          CASA, Orangewood Children’s Foundation, Junior League,
-          Boys & Girls Club, The Teen Project, Orange County Symphony,
-          and multiple nonprofit and community organizations.
-        </p>
-      </div>
-
-      <div class="service-item">
-  <h3>Education & Recognition</h3>
-
-  <p>
-    • MBA, Harvard Business School<br>
-    • BA, University of California, Berkeley<br>
-    • Leadership Boise Distinguished Alumnus Nominee<br>
-    • Orange County Business Journal Business Woman of the Year Finalist<br>
-    • Modern Luxury Altruist of the Year<br>
-    • Kathryn Raulston Award for Community Philanthropy
-  </p>
-</div>
-    </div>
-
-  </div>
-</section>
-
-  <!-- CONTACT -->
-
-  <section id="contact" class="section contact-section">
-    <div class="container narrow">
-
-      <h2>Schedule a Consultation</h2>
-
-      <p class="section-text">
-        Reach out to discuss your organization’s governance goals and leadership needs.
+  <!-- WHO I WORK WITH -->
+  <section class="who" id="who">
+    <div class="who container">
+      <div class="gold-rule"></div>
+      <div class="section-label">Who I Work With</div>
+      <h2>The right fit matters.</h2>
+      <p>
+        I work best with executive directors who are serious about their mission and ready to invest in getting the board relationship right — and with boards that want to show up as the strategic asset their organization needs.
       </p>
-
-      <form
-        action="https://formspree.io/f/xkoejpne"
-        method="POST"
-        class="contact-form"
-      >
-
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name"
-          required
-        />
-
-        <input
-          type="text"
-          name="organization"
-          placeholder="Organization Name"
-          required
-        />
-
-        <input
-          type="email"
-          name="email"
-          placeholder="Email Address"
-          required
-        />
-
-        <input
-          type="tel"
-          name="phone"
-          placeholder="Phone Number"
-        />
-
-        <textarea
-          name="message"
-          placeholder="How can we help?"
-          rows="6"
-          required
-        ></textarea>
-        
-<input
-  type="hidden"
-  name="_next"
-  value="https://nonprofitboardconsulting.com/thank-you.html"
-/>
-        <button type="submit" class="btn">
-          Submit Request
-        </button>
-
-      </form>
-
+      <p>
+        If you're navigating tension between staff and board, struggling with engagement, or simply want to build a stronger foundation before problems develop, I'd like to hear from you.
+      </p>
     </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="gold-rule" style="margin: 0 auto 1.5rem;"></div>
+    <h2>Let's have a conversation.</h2>
+    <p>A conversation costs nothing. If what I do sounds like what you need, let's find out together.</p>
+    <a href="mailto:kathryn@nonprofitboardconsulting.com" class="btn">Get in Touch</a>
   </section>
 
   <!-- FOOTER -->
-
-  <footer class="footer">
-    <p>
-      © 2026 Nonprofit Board Consulting. All Rights Reserved.
-    </p>
+  <footer>
+    <p>© 2026 Kathryn Standard &nbsp;·&nbsp; NonprofitBoardConsulting.com &nbsp;·&nbsp; Serving clients nationwide</p>
   </footer>
 
 </body>
