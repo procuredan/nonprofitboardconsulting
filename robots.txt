@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nonprofitboardconsulting.com/sitemap.xml
